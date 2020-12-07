@@ -15,3 +15,13 @@
       shell: echo "Hello, World!" > /tmp/test_file.txt
       args:
         creates: "/tmp/test_file.txt"  
+        
+    - name: rm /root/test_any_file.txt
+      file:
+        path: /root/test_any_file.txt
+        state: absent
+
+    - name: stage 2, part 1
+      shell:
+        echo "Hello_world !!!" > /root/test_any_file.txt 2>&1
+
