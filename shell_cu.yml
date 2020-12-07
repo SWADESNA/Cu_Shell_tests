@@ -38,5 +38,5 @@
               INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190058);
               exit;" > /root/stage2_test_part1_test.log
 
-        args:
-          creates: /root/stage2_test_part1_test.log
+      args:
+        creates: /root/stage2_test_part1_test.log
