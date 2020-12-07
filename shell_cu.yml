@@ -1,0 +1,42 @@
+- name: TEST SHELL MODULE
+  hosts: all
+  tasks:
+    - name: rm /root/stage2_part1.log
+      file:
+        path: /root/stage2_part1.log
+        state: absent
+
+    - name: stage 2, part 1
+      shell:
+        echo "INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190056);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190057);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190058);
+              exit;" > /root/stage2_part1.log 2>&1
+    
+        echo "INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190056);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190057);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190058);
+              exit;" > /root/stage2_part1_test.log
+
+    #  args:
+    #    creates: /root/stage2_part1.log
+
+    - name: rm /root/stage2_test_part1_test.log
+      file:
+        path: /root/stage2_test_part1_test.log
+        state: absent
+
+    - name: stage 2_test, part 1_test
+      shell:
+        echo "INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190056);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190057);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190058);
+              exit;" > /root/stage2_test_part1_test.log 2>&1
+    
+        echo "INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190056);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190057);
+              INSERT INTO SECURITY_PROFILE_ACTION (SECURITY_PROFILE_ID, MODULE_ACTION_ID) VALUES (4, 190058);
+              exit;" > /root/stage2_test_part1_test.log
+
+        args:
+          creates: /root/stage2_test_part1_test.log
